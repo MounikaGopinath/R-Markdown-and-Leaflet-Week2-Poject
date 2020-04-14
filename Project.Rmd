@@ -1,0 +1,23 @@
+
+new_icon <- awesomeIcons(
+  icon = 'ios-close',
+  iconColor = 'black',
+  library = 'ion',
+  markerColor = "red"
+)
+
+content <- paste(sep = "<br/>",
+                 "<b>Hitech City</b>",
+                 "Madapur",
+                 "Hyderabad"
+)
+
+my_map <- leaflet() %>%
+  addTiles() %>%
+  addAwesomeMarkers(lat = 17.4477532, lng = 78.3677646,
+                    icon = new_icon,  
+                    popup = "The IT HUB") %>%
+  addPopups(lat = 17.4477532, lng = 78.3677646, content,
+            options = popupOptions(closeButton = FALSE)
+  )
+my_map
